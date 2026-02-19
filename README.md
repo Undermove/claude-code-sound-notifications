@@ -14,7 +14,7 @@ This plugin adds a skill that sends system notifications when:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/claude-code-sound-notifications.git ~/.claude/plugins/sound-notifications
+git clone https://github.com/Undermove/claude-code-sound-notifications.git ~/.claude/plugins/sound-notifications
 
 # Or download and extract to ~/.claude/plugins/sound-notifications/
 ```

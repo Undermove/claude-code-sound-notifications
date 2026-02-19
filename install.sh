@@ -5,14 +5,23 @@ set -e
 
 CLAUDE_DIR="$HOME/.claude"
 PLUGIN_DIR="$CLAUDE_DIR/plugins/sound-notifications"
+REPO_URL="https://github.com/Undermove/claude-code-sound-notifications.git"
 
 echo "🔧 Installing Claude Code Sound Notifications..."
 
-# Create plugin directory
-mkdir -p "$PLUGIN_DIR/skills/sound-notifications"
+# Clone the repository
+if [ -d "$PLUGIN_DIR" ]; then
+    echo "📁 Plugin directory already exists, pulling latest version..."
+    cd "$PLUGIN_DIR"
+    git pull origin main
+else
+    echo "📁 Cloning repository..."
+    git clone "$REPO_URL" "$PLUGIN_DIR"
+fi
 
 # Copy files
 echo "📁 Copying plugin files..."
+cd "$PLUGIN_DIR"
 cp plugin.json "$PLUGIN_DIR/"
 cp -r skills "$PLUGIN_DIR/"
 
