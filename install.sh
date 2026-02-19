@@ -37,7 +37,7 @@ fi
 echo "⚙️  Updating settings.json..."
 
 # Check if sound-notifications already enabled
-if grep -q '"sound-notifications"' "$SETTINGS_FILE"; then
+if grep -q '"sound-notifications": true' "$SETTINGS_FILE"; then
     echo "✅ Plugin already enabled in settings.json"
 else
     # Add sound-notifications to enabledPlugins
