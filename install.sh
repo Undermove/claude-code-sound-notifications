@@ -42,14 +42,8 @@ if grep -q '"sound-notifications": true' "$SETTINGS_FILE"; then
 else
     # Add sound-notifications to enabledPlugins
     if grep -q '"enabledPlugins"' "$SETTINGS_FILE"; then
-        # Insert after "superpowers" line
-        if [[ "$OSTYPE" == "darwin"* ]]; then
-            sed -i '' '/"superpowers@claude-plugins-official": true,/a\
-    "sound-notifications": true
-' "$SETTINGS_FILE"
-        else
-            sed -i '/"superpowers@claude-plugins-official": true,/a\    "sound-notifications": true' "$SETTINGS_FILE"
-        fi
+        # Insert after "figma" line using perl (works on all systems)
+        perl -i -pe 's/(.*"figma@claude-plugins-official": true.*)/${1},\n    "sound-notifications": true/' "$SETTINGS_FILE"
     else
         echo "❌ Error: No enabledPlugins section in settings.json"
         exit 1
