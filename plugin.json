@@ -1,0 +1,13 @@
+{
+  "name": "sound-notifications",
+  "description": "Sound notifications for Claude Code",
+  "version": "1.0.0",
+  "author": "Claude Code Community",
+  "homepage": "https://github.com/yourusername/claude-code-sound-notifications",
+  "skills": {
+    "sound-notifications": {
+      "file": "skills/sound-notifications/SKILL.md",
+      "description": "Send system notifications when Claude Code needs input or completes a task"
+    }
+  }
+}
